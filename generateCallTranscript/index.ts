@@ -1,6 +1,7 @@
 import { chatCompletion, uploadContentToFile } from "../utils";
 import OpenAI from "openai";
-const prompt = require("prompt-sync")();
+import promptSync from 'prompt-sync';
+const prompt = promptSync();
 
 //options to choose a language from
 const langauges: { [key: string]: string } = {
@@ -29,12 +30,18 @@ while (!Object.keys(langauges).includes(languageInput)) {
 }
 
 //get the filename in which the transcript needs to be stored
-const fileName: string = prompt(
-  "Enter the File name where the transcript needs to be stored? "
-);
+let fileName: string = ''
+
+while(!fileName){
+  fileName = prompt(
+    "Enter the File name where the transcript needs to be stored? "
+  );
+
+  if(!fileName) console.error('Please enter a valid filename')
+}
 
 //generate transcript based on the user feedback
-const generateCallTranscript = async () => {
+export const generateCallTranscript = async () => {
   try {
     console.log("Please wait while we cook your transcript.");
     const chosenLanguage = langauges[Number(languageInput)];
@@ -51,7 +58,7 @@ const generateCallTranscript = async () => {
     const transcript = await chatCompletion(chatCompletionMessages);
     uploadContentToFile(
       "transcript",
-      fileName ? `${fileName}.txt` : "test.txt",
+      `${fileName}.txt`,
       transcript?.choices[0].message.content || ""
     );
     return transcript?.choices[0];

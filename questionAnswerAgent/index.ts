@@ -7,14 +7,15 @@ import {
   Document
 } from "llamaindex";
 import { updateDataToMongo } from "../utils/databaseHelper";
-const prompt = require('prompt-sync')();
+import promptSync from 'prompt-sync';
+const prompt = promptSync();
 
 //get username to store the chat history in DB
 const userName = prompt('Enter a valid user name to store the conversations: ');
 
 //retreive the text document from the stored transcripts
 let retreiveDocument : Document<Metadata>[] | undefined;
-const loadTranscript = async() =>{
+export const loadTranscript = async() =>{
     while (!retreiveDocument?.length){
         const fileName = prompt('Enter the File which you have a query with? ');
       try{
@@ -33,9 +34,11 @@ const openaiLLM = new OpenAI({
 const serviceContext = serviceContextFromDefaults({ llm: openaiLLM });
 
 //generate response from the chatbot for every query
-const questionAnswerBot = async (query:string) => {
+export const questionAnswerBot = async (query:string) => {
     try {
       if(!retreiveDocument) throw new Error('Enter a valid Document')
+      console.log("Thinking...");
+
       const vectorStoreIndexing = await VectorStoreIndex.fromDocuments(
         retreiveDocument,
         { serviceContext }
@@ -61,7 +64,10 @@ loadTranscript().then(async(_1)=>{
     let query: string = ''
     while (query!==':qa'){
         query = prompt('Your question? (To Exit type :qa): ');
-        if(query==':qa') return //exit
+        if(query==':qa') {
+            console.log('Thank you for utilizing me.')
+            return
+        } //exit
         await questionAnswerBot(query).catch(console.error);
     }
 }).catch(console.error);  

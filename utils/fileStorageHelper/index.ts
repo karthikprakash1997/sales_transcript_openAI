@@ -28,3 +28,15 @@ export const readFromFile = (filePath:string) => {
       // throw new Error('Error: error reading content to file')
     }
   };
+
+//delete file 
+export const deleteFile = (filePath:string) => {
+  try{
+    const content = fs.unlinkSync(filePath);
+    return content;
+  }
+  catch(er){
+    console.error(er,'Error: error deleting a file')
+    // throw new Error('Error: error reading content to file')
+  }
+};

@@ -1,19 +1,35 @@
 {
+  "type": "module",
   "dependencies": {
-    "jest": "^29.7.0",
     "llamaindex": "^0.2.1",
     "mongodb": "^6.5.0",
     "openai": "^4.29.2",
-    "prompt-sync": "^4.2.0"
+    "prompt-sync": "^4.2.0",
+    "ts-jest": "^29.1.2"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.24.1",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20.11.30",
     "@types/prompt-sync": "^4.2.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "tsx": "^4.7.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "verbose": true
   },
   "scripts": {
     "questionAnswerAgent": "env-cmd -f .env npx tsx ./questionAnswerAgent/index.ts",
     "generateCallTranscript": "env-cmd -f .env npx tsx ./generateCallTranscript/index.ts",
-    "summarizeCallTranscript": "env-cmd -f .env npx tsx ./summarizeCallTranscript/index.ts"
+    "summarizeCallTranscript": "env-cmd -f .env npx tsx ./summarizeCallTranscript/index.ts",
+    "test1": "env-cmd -f .env jest generateCallTranscript.spec.ts --config=jest.config.cjs --testTimeout 60000 --runInBand --forceExit",
+    "test3": "env-cmd -f .env jest questionAnswerAgent.spec.ts --config=jest.config.cjs --testTimeout 60000 --runInBand --forceExit",
+    "test2": "env-cmd -f .env jest summarizeCallTranscript.spec.ts --config=jest.config.cjs --testTimeout 60000 --runInBand --forceExit",
+    "test": "npm run test1 && npm run test2 && npm run test3"
   }
 }

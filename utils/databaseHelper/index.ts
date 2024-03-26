@@ -19,3 +19,31 @@ export const updateDataToMongo = async (data: any) => {
     console.error(err);
   }
 };
+
+//get chat history 
+export const getChatHistory = async (query:{[key:string]:string}) => {
+  try {
+    if(!client) throw new Error('Please provide a valid mongoDB address')
+    await client.connect(); //connect to Cluster
+    const db = client.db(dbName); //select a db
+    const collection = db.collection("userChatHistory"); //select the collection we need to insert
+    const insertedCollection = await collection.find(query); //insert the data to DB
+    return insertedCollection;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+//delete chat history 
+export const deleteChatHistory = async (query:{[key:string]:string}) => {
+  try {
+    if(!client) throw new Error('Please provide a valid mongoDB address')
+    await client.connect(); //connect to Cluster
+    const db = client.db(dbName); //select a db
+    const collection = db.collection("userChatHistory"); //select the collection we need to insert
+    const insertedCollection = await collection.deleteMany(query); //insert the data to DB
+    return insertedCollection;
+  } catch (err) {
+    console.error(err);
+  }
+};

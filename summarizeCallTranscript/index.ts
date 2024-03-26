@@ -1,6 +1,7 @@
 import {chatCompletion, readFromFile} from '../utils';
 import OpenAI from 'openai';
-const prompt = require('prompt-sync')();
+import promptSync from 'prompt-sync';
+const prompt = promptSync();
 
 //prompt to summarize the transcript generated
 const SUMMARIZE_CALL_TRANSCRIPT_PROMPT = `
@@ -15,9 +16,10 @@ while (!readTranscript){
 }
 
 //summazie the transcript
-const summarizeCallTranscript = async() =>{
+export const summarizeCallTranscript = async() =>{
     try{
         if(!readTranscript) throw new Error('Error: enter a valid file name')
+        console.log('Please wait while i am summarizing your transcript');
         const chatCompletionMessages:OpenAI.Chat.Completions.ChatCompletionMessageParam[]  = [
             { role: 'user', content: SUMMARIZE_CALL_TRANSCRIPT_PROMPT.replace(':{salescall}',readTranscript )}
          ]
@@ -31,4 +33,4 @@ const summarizeCallTranscript = async() =>{
     }
 }
 
-summarizeCallTranscript().catch(console.error);
+summarizeCallTranscript().then().catch(console.error);
