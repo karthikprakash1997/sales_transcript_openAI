@@ -1,0 +1,23 @@
+00:01:15 Alice (ABC Company): Hello, this is Alice from ABC Company calling to introduce our latest product line.
+00:05:30 Bob (XYZ Corporation): Hi Alice, this is Bob from XYZ Corporation. We're actually looking to expand our product offerings as well.
+00:10:45 Alice (ABC Company): That's great to hear, Bob. I think we may have just what you're looking for. Can we set up a meeting to discuss further?
+00:15:20 Bob (XYZ Corporation): Absolutely, Alice. Let's schedule a meeting for next week to go over the details.
+00:20:35 Alice (ABC Company): Sounds good, Bob. I'll send over a calendar invite for our meeting next Thursday at 2 pm.
+00:25:50 Bob (XYZ Corporation): Perfect, looking forward to it. Thanks, Alice.
+00:30:10 Alice (ABC Company): Thank you, Bob. Have a great day.
+00:35:25 Bob (XYZ Corporation): You too, Alice. Goodbye.
+00:40:40 Alice (ABC Company): Hello, this is Alice from ABC Company calling to follow up on our previous conversation.
+00:45:55 Bob (XYZ Corporation): Hi Alice, thanks for calling. I was just thinking about our upcoming meeting.
+00:50:10 Alice (ABC Company): Great to hear, Bob. Is there anything specific you'd like to discuss during our meeting?
+00:55:25 Bob (XYZ Corporation): I was actually hoping to learn more about your pricing and delivery options.
+01:00:40 Alice (ABC Company): Of course, Bob. I'll make sure to have all that information ready for our meeting next week.
+01:05:55 Bob (XYZ Corporation): Sounds good, Alice. Looking forward to it.
+01:10:10 Alice (ABC Company): Me too, Bob. Have a great day.
+01:15:25 Bob (XYZ Corporation): You too, Alice. Goodbye.
+01:20:40 Alice (ABC Company): Hello, this is Alice from ABC Company calling to see if you received the information I sent over.
+01:25:55 Bob (XYZ Corporation): Hi Alice, yes I did. Thank you for sending that over.
+01:30:10 Alice (ABC Company): You're welcome, Bob. Do you have any questions or need further clarification?
+01:35:25 Bob (XYZ Corporation): Not at the moment, Alice. I think we're all set for our meeting next week.
+01:40:40 Alice (ABC Company): Sounds good, Bob. I'll see you then.
+01:45:55 Bob (XYZ Corporation): Looking forward to it, Alice. Have a great day.
+01:50:10 Alice (ABC Company): You too, Bob. Goodbye.

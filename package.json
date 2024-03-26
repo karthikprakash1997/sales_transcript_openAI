@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "jest": "^29.7.0",
+    "llamaindex": "^0.2.1",
+    "mongodb": "^6.5.0",
+    "openai": "^4.29.2",
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/prompt-sync": "^4.2.3",
+    "tsx": "^4.7.1"
+  },
+  "scripts": {
+    "questionAnswerAgent": "env-cmd -f .env npx tsx ./questionAnswerAgent/index.ts",
+    "generateCallTranscript": "env-cmd -f .env npx tsx ./generateCallTranscript/index.ts",
+    "summarizeCallTranscript": "env-cmd -f .env npx tsx ./summarizeCallTranscript/index.ts"
+  }
+}
