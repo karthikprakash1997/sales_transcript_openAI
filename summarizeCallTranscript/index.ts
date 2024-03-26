@@ -24,7 +24,7 @@ export const summarizeCallTranscript = async() =>{
             { role: 'user', content: SUMMARIZE_CALL_TRANSCRIPT_PROMPT.replace(':{salescall}',readTranscript )}
          ]
         const summary = await chatCompletion(chatCompletionMessages)
-        console.log(summary?.choices[0].message.content)
+        console.log(`Summary: ${summary?.choices[0].message.content}`)
         return summary?.choices[0];
     }
     catch(er){

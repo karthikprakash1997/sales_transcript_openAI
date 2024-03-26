@@ -100,7 +100,7 @@ Also added three utility files to reuse the functions and helpers for reading, w
 - Utilise langchain for more accurate text generation format 
 - Add more language selection
 
-Note: The codebase also contains a folder called transcipt which have some demo transripts being generated for various temperatures
+Note: The codebase also contains a folder called transcipt which have some demo transripts being generated for various temperatures 0, 1, 0.85
 
 
 
