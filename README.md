@@ -65,9 +65,9 @@ Remember that tests might take some time to complete, especially since they're c
 ## Note
 Ensure you have the necessary `.env` file at the root of your project containing all the environment variables needed for the scripts and tests to run correctly. your .env file should contain:
 
-OPENAI_API_KEY=**open ai key**
-MONGO_URL=mongodb+srv://karthiktestunofficial:FjqahsxobY5KJ4m4@cluster0.y1fmbvm.mongodb.net/ **your own mongoDB if needed i have used a hosted mongoDB here**
-DB_NAME=developmentalone
+ - OPENAI_API_KEY=**open ai key**
+ - MONGO_URL=mongodb+srv://karthiktestunofficial:FjqahsxobY5KJ4m4@cluster0.y1fmbvm.mongodb.net/ **your own mongoDB if needed i have used a hosted mongoDB here**
+ - DB_NAME=developmentalone
 
 **Code Explanation**
 
@@ -102,7 +102,7 @@ Also added three utility files to reuse the functions and helpers for reading, w
 
 Note: The codebase also contains a folder called transcipt which have some demo transripts being generated for various temperatures 0, 1, 0.85
 
-
+Open AI usage: Open ai has been used at a minimal level especially in adding boilder plate code for storing chat history and also in test cases, since llama index is new framework the openAI is not aware of that, with respect to the prompts i refered to my notes from deeplearning.ai prompt engineering course. 
 
 
 
