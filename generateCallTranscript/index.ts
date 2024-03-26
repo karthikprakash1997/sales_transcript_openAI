@@ -55,7 +55,7 @@ export const generateCallTranscript = async () => {
           ),
         },
       ];
-    const transcript = await chatCompletion(chatCompletionMessages);
+    const transcript = await chatCompletion(chatCompletionMessages, 1);
     uploadContentToFile(
       "transcript",
       `${fileName}.txt`,

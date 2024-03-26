@@ -1,10 +1,6 @@
 const { summarizeCallTranscript } = require("./index");
 const fs = require("fs");
 const { deleteFile } = require("../utils");
-import promptSync from "prompt-sync";
-import { readFromFile } from "../utils";
-import { deleteChatHistory, getChatHistory } from "../utils/databaseHelper";
-const prompt = promptSync();
 
 jest.mock("prompt-sync", () => {
   jest.requireActual("prompt-sync");
@@ -19,8 +15,6 @@ jest.mock("prompt-sync", () => {
 });
 
 describe("Check for test file generation", () => {
-  const fileName = "./transcript/test.txt";
-
   beforeEach(() => {
     jest.spyOn(console, "log");
   });
@@ -35,8 +29,6 @@ describe("Check for test file generation", () => {
     expect(console.log).toHaveBeenCalledWith(
       "Please wait while i am summarizing your transcript"
     );
-    expect(console.log).toBeDefined(
-      );
+    expect(console.log).toBeDefined();
   });
-
 });

@@ -1,10 +1,6 @@
 const { questionAnswerBot, loadTranscript } = require("./index");
-const fs = require("fs");
 const { deleteFile } = require("../utils");
-import promptSync from "prompt-sync";
-import { readFromFile } from "../utils";
 import { deleteChatHistory, getChatHistory } from "../utils/databaseHelper";
-const prompt = promptSync();
 
 jest.mock("prompt-sync", () => {
   jest.requireActual("prompt-sync");

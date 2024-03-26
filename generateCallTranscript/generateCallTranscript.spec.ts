@@ -1,10 +1,8 @@
 const { generateCallTranscript } = require("./index");
 const fs = require("fs");
-const { deleteFile } = require("../utils");
-import promptSync from "prompt-sync";
 import { readFromFile } from "../utils";
-const prompt = promptSync();
 
+//create a jest mock to add user input
 jest.mock("prompt-sync", () => {
  jest.requireActual("prompt-sync");
   return jest.fn(() => (question: string) => {
@@ -19,15 +17,15 @@ jest.mock("prompt-sync", () => {
   });
 });
 
-describe("Check for test file generation", () => {
+describe("Check for generate call transcript", () => {
   const fileName = "./transcript/test.txt";
 
+  //check for all console.log
   beforeEach(() => {
     jest.spyOn(console, "log");
   });
 
   afterEach(() => {
-    // Clean up the file after each test.
     jest.restoreAllMocks();
   });
 
@@ -35,13 +33,12 @@ describe("Check for test file generation", () => {
     await expect(generateCallTranscript()).resolves.toBeDefined();
     expect(console.log).toHaveBeenCalledWith(
       "Please wait while we cook your transcript."
-    );
-    expect(fs.existsSync(fileName));
-  });
+    ); //check if the console log message has been printed
+    expect(fs.existsSync(fileName)); //check if a file under the name is created
+  }); 
 
   test("Check if file is generated for test case english is not empty", async () => {
-    const content = readFromFile(fileName);
-    expect(content).toBeDefined();
-    // deleteFile(fileName);
+    const content = readFromFile(fileName); //read from file
+    expect(content).toBeDefined(); //check if the file has content
   });
 });
